@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/security_rbac?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  session:
+    store-type: redis
+
+  thymeleaf:
+    cache: false
+
+# 禁用 security
+security:
+  basic:
+    enabled: true
+
+server:
+  port: 8060
+  session:
+    timeout: 1800
+
+custom:
+  security:
+    browser:
+      loginPage: "/login"
+    validateCode:
+      imageCode:
+        length: 4
+        height: 30
+    loginType: JSON

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Title</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/login/authentication/image}">
+  <div>
+    <label>
+      <input type="text" name="username"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="password" name="password"/>
+    </label>
+  </div>
+  <div>
+    记住我: <label>
+      <input type="checkbox" name="remember-me" value="true"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="text" name="image"/>
+      <img th:src="@{/code/image(mobile=12345678)}" alt="图片验证码" src=""/>
+    </label>
+  </div>
+  <input type="submit" value="登录"/>
+</form>
+
+<hr />
+<hr />
+
+<form method="post" th:action="@{/login/authentication/sms}">
+  <div>
+    <label>
+      <input type="text" name="mobile" value="123456789"/>
+    </label>
+  </div>
+  <div>
+    <label>
+      <input type="text" name="sms"/>
+      <a th:href="@{/code/sms(mobile=123456789)}">获取短信验证码</a>
+    </label>
+  </div>
+  <input type="submit" value="登录"/>
+</form>
+</body>
+</html>
